@@ -1,0 +1,1271 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #444444;
+  background-color: #F5F1E9;
+}
+
+/* 赤枠 */
+
+.page-borderbox {
+  background: #BF4643;
+  position: fixed;
+  z-index: 1010;
+}
+
+.page-borderbox.l {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 10px;
+}
+
+.page-borderbox.r {
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 10px;
+}
+
+.page-borderbox.t {
+  height: 10px;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.page-borderbox.b {
+  bottom: 0;
+  height: 10px;
+  left: 0;
+  width: 100%;
+}
+
+.bg_shape_wrapper {
+  width: 100%;
+  position: absolute;
+}
+
+.bg_shape {
+  position: fixed;
+  width: 130%;
+  z-index: 0;
+  top: 40%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-65%, -50%);
+  mix-blend-mode: multiply;
+  transition: transform 1s ease-in-out, width 1s ease-in-out, opacity 1s ease-in-out .2s;
+}
+
+.expanded {
+  width: 150%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: transform 1s ease-in-out, width 1s ease-in-out, opacity 1s ease-in-out .3s;
+}
+
+/* header */
+
+main {
+  padding: 0 10px 0 10px;
+}
+
+
+.hamburger {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #b4443f;
+  border-radius: 17px;
+  z-index: 150;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.hamburger span {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 3px;
+  background-color: #fff;
+  transition: transform .3s;
+}
+
+.hamburger.is-active span {
+  background-color: #ffffff;
+}
+
+.hamburger span:nth-child(1) {
+  top: 30%;
+}
+
+.hamburger span:nth-child(2) {
+  top: 50%;
+}
+
+.hamburger span:nth-child(3) {
+  top: 70%;
+}
+
+/*=========================================
+#drawer
+=========================================*/
+.drawer {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 130;
+  width: 100%;
+  height: 100%;
+  background-color: #BF4643;
+  background-image: url(../images/pattern\ _03.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: opacity .3s, visibility .3s;
+
+}
+
+.drawer.is-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drawer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.drawer__list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 50px;
+}
+
+.drawer__link {
+  color: #ffffff;
+  font-size: 25px;
+  font-style: italic;
+  font-family: "B612";
+
+}
+
+.sp-show {
+  display: none;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.first_view {
+  width: 65%;
+  height: inherit;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.key_visual {
+  position: relative;
+  width: 75%;
+  max-width: 92vh;
+  padding-left: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d7b883;
+}
+
+.key_visual .logo {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  font-size: clamp(1.125rem, 0.982rem + 0.36vw, 1.25rem);
+  text-align: center;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.8em;
+  z-index: 3;
+}
+
+.logo img {
+  width: 40%;
+}
+
+.shape01,
+.shape02,
+.shape03 {
+  position: absolute;
+  width: 100%;
+}
+
+.shape01 {
+  animation: rotate2 12s infinite ease-out;
+}
+
+.shape02 {
+  animation: rotate2 20s infinite ease-in;
+}
+
+.shape03 {
+  animation: rotate 15s infinite ease-in-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.menu_wrapper {
+  position: relative;
+  width: clamp(70vh, 40vh, 40vh);
+  height: 100vh;
+  overflow: hidden;
+  transform: translate(0%, 0%);
+  transition: transform 1s ease-in-out, width 1s ease-in-out;
+  z-index: 2;
+}
+
+.menu {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #BF4643;
+  -webkit-clip-path: url(#clip_path01);
+  clip-path: url(#clip_path01)
+}
+
+.menu img {
+  position: absolute;
+  height: 110%;
+  opacity: .5;
+}
+
+.menu ul {
+  z-index: 1;
+  position: absolute;
+  top: clamp(100px, calc(700px - 45vw), 250px);
+  right: 0;
+  text-align: right;
+  padding-right: 40px;
+}
+
+.menu li {
+  margin-bottom: 50px;
+}
+
+.menu ul a {
+  color: #fff;
+  font-family: "B612", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1rem, 0.474rem + 1.3vw, 1.625rem);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+/* メニューを画面外へ移動 */
+.menu_hidden {
+  transform: translate(0%, 0%) translateX(5vw);
+  width: 0%;
+}
+
+.menu_hidden.display-none {
+  width: 0%;
+}
+
+/* main */
+
+article {
+  margin: 50px 0 50px 0;
+  font-family: "B612";
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sm_title {
+  width: clamp(15rem, 12.5rem + 12.5vw, 21.875rem);
+  position: relative;
+  z-index: 2;
+  padding-top: 60px;
+}
+
+h2 {
+  font-size: clamp(1.063rem, 0.767rem + 1.48vw, 1.875rem);
+  margin-bottom: -30px;
+  margin-left: 20px;
+}
+
+.h2img {
+  height: auto;
+}
+
+section {
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  width: 80%;
+  margin: 30px auto;
+}
+
+/* MENUBER================================================ */
+
+.menuber {
+  width: 100%;
+  background-color: #BF4643;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+}
+
+.menuber.show {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.menuber ul {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 17px;
+  padding: 30px;
+  font-style: italic;
+}
+
+
+/* INTRODUCTIONセクション================================================ */
+#introduction {
+  padding-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.introduction_research {
+  position: relative;
+
+}
+
+#introduction .introduction_research p {
+  padding: 20px 0 20px 0;
+  line-height: 1.8em;
+}
+
+.shape08 {
+  position: absolute;
+  right: -60px;
+  z-index: -1;
+  top: 100px;
+  width: 50%;
+  height: auto;
+}
+
+.swallow02 {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+}
+
+.swallow03 {
+  position: absolute;
+  left: 50px;
+}
+
+#introduction p.bold {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #a28988;
+}
+
+p.bold {
+  font-weight: 700;
+}
+
+p.size_md {
+  font-size: 25px;
+}
+
+.researchtopic {
+  background-image: url(../images/asanoha_red.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* INTRODUCTIONセクションここまで======================================== */
+
+/* MEMBERセクション================================================ */
+.boundary {
+  width: 100%;
+  height: auto;
+}
+
+.boundary.btm {
+  margin-top: 100px;
+}
+
+#membersection {
+  background-image: url(../images/pattern_03.png);
+  background-size: contain;
+  background-color: #fff;
+  margin-bottom: -2px;
+}
+
+#membersection h2 {
+  color: #BF4643;
+}
+
+#membersection section {
+  gap: 45px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 20px auto 0;
+}
+
+.member_card {
+  background-color: #fff;
+  width: 210px;
+  height: auto;
+  border: 2px solid #BF4643;
+  border-radius: 15px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.jobposition {
+  background-color: #BF4643;
+  width: 100px;
+  border-radius: 10px 0 15px 0;
+  color: #fff;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+
+.student .jobposition {
+  background-color: #3F599A;
+}
+
+.student {
+  border: 2px solid #3F599A;
+
+}
+
+.member_card div {
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  position: relative;
+}
+
+
+.member_photo,
+.shape_04 {
+  position: absolute;
+  height: 150px;
+}
+
+
+
+.memberbg_shape {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+}
+
+.member_photo {
+  mask-image: url(../images/shape_01.svg);
+  mask-size: 150px 150px;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  margin: 0 auto;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile_link {
+  right: -14px;
+  bottom: 0;
+  position: absolute;
+
+}
+
+.profile_link img {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.489);
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #BF4643;
+}
+
+.student .profile_link img {
+  background-color: #3F599A;
+}
+
+.profile_link img:hover {
+  box-shadow: none;
+  transition: .3s;
+}
+
+.member_card p {
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.member_card p.name,
+.member_card p.field,
+.member_card p.affiliation {
+  margin: 0 10px;
+}
+
+.name,
+.field {
+  font-family: "Inknut Antiqua", serif;
+}
+
+.field {
+  font-size: 14px;
+  color: #BF4643;
+}
+
+.student .field {
+  color: #3F599A;
+}
+
+.member_card p.affiliation {
+  font-size: 10px;
+  margin: 10px;
+}
+
+/* MEMBERセクションここまで============================================ */
+
+/* NEWSセクション================================================ */
+#newssection {
+  background-color: #BF4643;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 50px 0;
+}
+
+.newssection_list {
+  position: relative;
+  z-index: 1;
+}
+
+#newssection h2 {
+  color: #fff;
+}
+
+.meeting {
+  border: 1px solid #4CAF50;
+  color: #4CAF50;
+}
+
+.tool {
+  border: 1px solid #E97C23;
+  color: #E97C23;
+}
+
+.paper {
+  border: 1px solid #B762CC;
+  color: #B762CC;
+}
+
+.event {
+  border: 1px solid #5B8FC7;
+  color: #5B8FC7;
+}
+
+.image_container {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  gap: 10px
+}
+
+.image_container img {
+  height: 100px;
+  width: auto;
+}
+
+.more {
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: #F5F1E9;
+  color: #BF4643;
+  padding: 15px;
+  width: 190px;
+  border-radius: 10px;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.arrow {
+  font-size: 14px;
+  color: #BF4643;
+}
+
+/* NEWSセクションここまで============================================= */
+
+/* PUBLICATIONセクション================================================ */
+#publicationsection {
+  padding-top: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.publication_bg {
+  position: absolute;
+  width: 100%;
+  height: min-content;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+}
+
+#publicationsection section {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid #BF4643;
+}
+
+.publication-content {
+  width: 85%;
+}
+
+#publicationsection p {
+  line-height: 1.7;
+}
+
+a.research_title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.mb_only {
+  display: none;
+}
+
+.research_title span {
+  width: 80%;
+}
+
+.research_title p.journal,
+.research_title p.conference,
+.research_title p.misc,
+.research_title p.book {
+  font-size: 12px;
+  padding: 3px 0px;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  width: 100px;
+  margin-right: 5px;
+}
+
+.research_name {
+  width: 80%;
+}
+
+.publication-content a .journal {
+  border: 1px solid #E97C23;
+  color: #E97C23;
+}
+
+.conference {
+  border: 1px solid #4CAF50;
+  color: #4CAF50;
+}
+
+.book {
+  border: 1px solid #B762CC;
+  color: #B762CC;
+}
+
+.misc {
+  border: 1px solid #5B8FC7;
+  color: #5B8FC7;
+}
+
+.research_title {
+  color: #BF4643;
+  font-weight: 700;
+}
+
+.researcher {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.location {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+
+.publication-arrow {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  line-height: 0;
+}
+
+.publication-arrow img {
+  display: block;
+  width: 45px;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.more_btn_wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.more_btn {
+  margin-right: 0;
+  margin-left: auto;
+  color: #fff;
+  background-color: #BF4643;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  width: 190px;
+  border-radius: 10px;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+}
+
+.more_btn_wrapper .arrow {
+  color: #fff;
+}
+
+/* PUBLICATIONセクションここまで======================================= */
+
+
+/* アコーディオン基本構成要素======================================== */
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-size: 12px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.category {
+  font-size: 12px;
+  width: 90px;
+  padding: 3px 0px;
+  border-radius: 40px;
+  text-align: center;
+}
+
+summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.excerpt {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.6em;
+  margin-top: 5px;
+  width: 85%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+details[open] .excerpt {
+  display: block;
+}
+
+details p {
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 研究トピックアコーディオン------------------------------ */
+.topic_accordion {
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 80%;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+/* トピックタイトル */
+.topic_title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #b4443f;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.topic_details p {
+  font-size: 14px;
+  line-height: 2em;
+  font-weight: 400;
+}
+
+.topic_details .excerpt {
+  width: 85%;
+  -webkit-line-clamp: 2;
+}
+
+/* 「もっと見る」 */
+.topic_viewmore {
+  position: absolute;
+  right: -67px;
+  bottom: -86px;
+  background-color: #b4443f;
+  font-weight: bold;
+  font-style: italic;
+  padding: 26px 36px 10px 10px;
+  border-radius: 50%;
+  width: 150px;
+  height: 130px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.topic_viewmore p {
+  color: white;
+  font-size: 12px;
+}
+
+.topic_viewmore p:last-child {
+  font-style: normal;
+  transition: .4s ease;
+}
+
+details[open] .topic_viewmore p:first-child {
+  display: none;
+}
+
+details[open] .topic_viewmore p:last-child {
+  transform: rotate(180deg);
+}
+
+/* 研究トピックアコーディオンここまで------------------------------ */
+
+/* NEWSアコーディオン------------------------------ */
+.news_accordion {
+  border-radius: 10px;
+  padding: 25px 15px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.news_accordion .news_contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.news_accordion h3 {
+  font-weight: bold;
+  font-size: 18px;
+  width: 80%;
+}
+
+/* 「もっと見る」============================ */
+.news_viewmore {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+  text-align: center;
+  width: 15%;
+}
+
+.news_viewmore p:last-child {
+  color: #BF4643;
+  font-style: normal;
+  transition: .4s ease;
+}
+
+details[open] .news_viewmore p:first-child {
+  display: none;
+}
+
+details[open] .news_viewmore p:last-child {
+  transform: rotate(180deg);
+}
+
+/* NEWSアコーディオンここまで------------------------------ */
+/* アコーディオン要素ここまで======================================== */
+
+/* フッター============================================================ */
+footer {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  padding-left: 20px;
+}
+
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #BF4643;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/pattern _03.svg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.footer-content {
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.footer-content img {
+  height: 120px;
+  width: auto;
+}
+
+.footer-content div {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.footer-content div p {
+  background-color: #BF4643;
+  width: fit-content;
+  letter-spacing: .09em;
+}
+
+/* レスポンシブ============================================================ */
+
+
+@media screen and (max-width:768px) {
+
+
+  .sp-show {
+    display: block;
+  }
+
+  .sp-none {
+    display: none;
+  }
+
+  .menuber {
+    display: none;
+  }
+
+  #introduction {
+    padding-top: 150px;
+    margin-top: 0;
+  }
+
+  section {
+    width: 85%;
+    font-size: 14px;
+  }
+
+
+  .first_view {
+    width: 90%;
+    height: 100vh;
+    margin-top: -50px;
+  }
+
+  .key_visual {
+    width: 100%;
+    max-width: 92vh;
+  }
+
+  .key_visual .logo {
+    width: 130%;
+  }
+
+  .shape01,
+  .shape02,
+  .shape03 {
+    width: 125%;
+  }
+
+  .topic_viewmore {
+    position: absolute;
+    right: -40px;
+    bottom: -135px;
+    background-color: #b4443f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 18px 15px;
+    border-radius: 40% 0% 50% 40%;
+    width: 125px;
+    height: 130px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+
+  .expanded {
+    width: 100%;
+  }
+
+  .key_visual {
+    padding-left: 0px;
+
+  }
+
+  .bg_shape {
+    width: 270%;
+    top: 46%;
+    left: 80%;
+  }
+
+  .menu_wrapper {
+    display: none;
+  }
+
+  p.size_md {
+    font-size: 16px;
+  }
+
+  .swallow02 {
+    display: none;
+  }
+
+  .swallow03 {
+    display: none;
+  }
+
+  #introduction .introduction_research p {
+    padding: 10px 0 10px 0;
+  }
+
+  .topic_accordion {
+    padding: 25px 20px 70px 20px;
+  }
+
+  .topic_viewmore {
+    padding-top: 15px;
+    padding-right: 22px;
+  }
+
+
+  .topic_details p {
+    line-height: 1.5;
+  }
+
+  #membersection section {
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .member_card {
+    height: auto;
+    width: 150px;
+  }
+
+  .member_card div {
+    width: 110px;
+    height: 110px;
+    margin: 10px auto;
+  }
+
+
+  .member_photo,
+  .shape_04 {
+    height: 110px;
+
+  }
+
+  .profile_link img {
+    width: 40px;
+    height: auto;
+  }
+
+  .memberbg_shape {
+    height: 110px;
+    width: 110px;
+  }
+
+  .member_photo {
+    mask-size: 110px 110px;
+
+  }
+
+  .more_btn_wrapper {
+    width: 85%;
+  }
+
+  .field {
+    font-size: 12px;
+
+  }
+
+  footer {
+    padding-left: 10px;
+  }
+
+  footer a {
+    width: 30%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 3px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1;
+  }
+
+  .footer-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-content div {
+    font-size: 10px;
+  }
+
+
+
+
+
+  .date {
+    margin-right: 5px;
+  }
+
+  .affiliation {
+    font-size: 9px;
+    margin: 5px 15px 15px 15px;
+  }
+
+  #newssection section {
+    width: 90%;
+  }
+
+  a.research_title {
+    display: block;
+  }
+
+  .research_title p.journal,
+  .research_title p.conference,
+  .research_title p.misc,
+  .research_title p.book {
+    margin-bottom: 5px;
+  }
+}
