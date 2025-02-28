@@ -473,6 +473,10 @@ p.size_md {
   margin-bottom: -2px;
 }
 
+#member {
+  padding-top: 120px;
+}
+
 #membersection h2 {
   color: #BF4643;
 }
@@ -1067,7 +1071,7 @@ footer {
   }
 
   #introduction {
-    padding-top: 150px;
+    padding-top: 50px;
     margin-top: 0;
   }
 
