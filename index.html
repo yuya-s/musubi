@@ -512,12 +512,13 @@
                   <p class="excerpt">
                     {{ item.content | newline_to_br }}
                   </p>
-                  {% for image in item.images %}
-                  <div class="image_container">
-                    <a href="{{ image.url }}?" data-lightbox="album"><img src="{{ image.url }}?h=100" alt=""></a>
+                  <div class="image_container_wrapper">
+                    {% for image in item.images %}
+                    <div class="image_container">
+                      <a href="{{ image.url }}?" data-lightbox="album"><img src="{{ image.url }}?h=100" alt=""></a>
+                    </div>
+                    {% endfor %}
                   </div>
-                  {% endfor %}
-                </div>
                 <div class="news_viewmore">
                   <p>view more</p>
                   <p>▼</p>
